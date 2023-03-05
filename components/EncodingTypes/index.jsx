@@ -3,11 +3,12 @@ import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import { Stack, Box } from "@mui/material";
 
-const EncodingTypes = () => {
+const EncodingTypes = ({setType}) => {
   const [alignment, setAlignment] = React.useState("url");
 
   const handleAlignment = (event, newAlignment) => {
     setAlignment(newAlignment);
+    setType(newAlignment)
   };
 
   const values = [
