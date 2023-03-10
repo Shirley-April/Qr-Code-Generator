@@ -33,9 +33,6 @@ export default function Home() {
       .then(function (response) {
         console.log(response);
         const blob = response.data;
-        // setBlob(blob)
-
-        // console.log("Binary", response.data);
 
         const blobUrl = URL.createObjectURL(blob);
 
