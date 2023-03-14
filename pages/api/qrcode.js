@@ -1,10 +1,7 @@
-var cors = require("cors");
-const bodyParser = require("body-parser");
+import fs from "fs";
+import path from "path";
 
 const Qrcode = require("qrcode");
-
-// app.use(cors());
-// app.use(bodyParser.json())
 
 export default function qrcode(req, res) {
   if (req.method === "POST") {
@@ -22,7 +19,9 @@ export default function qrcode(req, res) {
         return res.status(500).send({ error: "Error previewing image" });
       }
 
-      res.send("image.png", { root: __dirname });
+      const filePath = path.resolve(".", "image.png");
+      const imageBuffer = fs.readFileSync(filePath);
+      res.send(imageBuffer);
     });
   }
 }
