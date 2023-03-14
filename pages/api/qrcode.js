@@ -21,6 +21,8 @@ export default function qrcode(req, res) {
 
       const filePath = path.resolve(".", "image.png");
       const imageBuffer = fs.readFileSync(filePath);
+      res.setHeader('Content-Type', 'image/jpg')
+
       res.send(imageBuffer);
     });
   }
